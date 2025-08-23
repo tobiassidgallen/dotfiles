@@ -1,0 +1,115 @@
+/* Waybar style */
+/* Save as ~/.config/waybar/style.css */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Hack", "Font Awesome 5 Free";
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #000000;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #ffffff;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background-color: #333333;
+}
+
+#workspaces button.focused {
+    background-color: #ffffff;
+    color: #000000;
+    border-bottom: 2px solid #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+#mode {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 0 8px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 8px;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+#battery.charging, #battery.plugged {
+    color: #00ff00;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #ff0000;
+    color: #ffffff;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#cpu {
+    color: #ffffff;
+}
+
+#memory {
+    color: #ffffff;
+}
+
+#network {
+    color: #ffffff;
+}
+
+#network.disconnected {
+    color: #ff0000;
+}
+
+#pulseaudio {
+    color: #ffffff;
+}
+
+#pulseaudio.muted {
+    color: #ff0000;
+}
+
+#tray {
+    background-color: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #ff0000;
+}
