@@ -1,0 +1,88 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "spacing": 0,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+    
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{index}",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#ffffff'><b>{}</b></span>",
+                "days": "<span color='#ffffff'>{}</span>",
+                "weekdays": "<span color='#ffffff'><b>{}</b></span>",
+                "today": "<span color='#ff6600'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    
+    "cpu": {
+        "format": "CPU {usage}%",
+        "tooltip": false,
+        "interval": 2
+    },
+    
+    "memory": {
+        "format": "MEM {percentage}%",
+        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)\nSwap: {swapUsed}GB/{swapTotal}GB"
+    },
+    
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "BAT {capacity}%",
+        "format-charging": "CHG {capacity}%",
+        "format-plugged": "AC {capacity}%",
+        "format-alt": "{time}"
+    },
+    
+    "network": {
+        "format-wifi": "WIFI {signalStrength}%",
+        "format-ethernet": "ETH",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "DISCONNECTED",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    
+    "pulseaudio": {
+        "format": "VOL {volume}%",
+        "format-bluetooth": "BVOL {volume}%",
+        "format-bluetooth-muted": "BMUTE",
+        "format-muted": "MUTE",
+        "format-source": "MIC {volume}%",
+        "format-source-muted": "MMUTE",
+        "scroll-step": 5,
+        "on-click": "pamixer -t",
+        "on-click-right": "pavucontrol",
+        "tooltip-format": "{desc}"
+    },
+    
+    "tray": {
+        "spacing": 10
+    }
+}
