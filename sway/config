@@ -22,7 +22,16 @@ input type:keyboard {
 
 input type:touchpad {
     tap enabled
+    tap_button_map lrm
     natural_scroll enabled
+    dwt enabled
+    accel_profile adaptive
+    pointer_accel 0.3
+    scroll_method two_finger
+    click_method clickfinger
+    drag enabled
+    drag_lock enabled
+    middle_emulation enabled
 }
 
 # Key bindings
@@ -33,7 +42,11 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 
 # Start your launcher
-bindsym $mod+d exec $menu
+bindsym $mod+s exec $menu
+
+# Workspace navigation
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -96,9 +109,9 @@ bindsym $mod+b splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+bindsym $mod+z layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
@@ -139,23 +152,30 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Screenshots
-bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
-bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym Print exec grim - | wl-copy
+bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
-# Volume control
+# Volume and brightness control
 bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioMute exec pamixer -t
-
-# Brightness control
+bindsym XF86AudioMicMute exec pamixer --default-source -t
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
+# Additional function keys for HP EliteBook
+bindsym XF86Display exec wdisplays
+bindsym XF86WLAN exec nmcli radio wifi toggle
+bindsym XF86Tools exec $term -e ranger
+bindsym XF86Calculator exec $term -e qalc
+
 # Lock screen
-bindsym $mod+Shift+x exec swaylock -f -c 000000
+bindsym $mod+l exec swaylock -f -c 000000
 
 # File manager
-bindsym $mod+Shift+f exec $term -e ranger
+bindsym $mod+e exec $term -e ranger
 
 # System monitor
 bindsym $mod+Shift+p exec $term -e btop
