@@ -5,7 +5,7 @@
     "spacing": 0,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["bluetooth", "network", "disk", "cpu", "custom/cpu-temp", "memory", "pulseaudio", "battery", "tray"],
     
     "sway/workspaces": {
         "disable-scroll": true,
@@ -25,8 +25,9 @@
     },
     
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M}",
+        "format": "{:%m/%d/%Y %H:%M:%S}",
         "tooltip-format": "<tt>{calendar}</tt>",
+        "interval": 1,
         "calendar": {
             "mode": "month",
             "format": {
@@ -40,33 +41,66 @@
     
     "cpu": {
         "format": "CPU {usage}%",
-        "tooltip": false,
+        "tooltip-format": "CPU Usage: {usage}%\nLoad: {load}",
+        "interval": 2
+    },
+    
+    "custom/cpu-temp": {
+        "exec": "sensors | grep 'Tctl:' | awk '{print $2}' | sed 's/+//;s/°C//' | head -1",
+        "format": "{}°C",
+        "tooltip": "CPU Temperature",
         "interval": 2
     },
     
     "memory": {
-        "format": "MEM {percentage}%",
-        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)\nSwap: {swapUsed}GB/{swapTotal}GB"
+        "format": "MEM {used}G/{total}G",
+        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)\nAvailable: {avail}GB\nSwap: {swapUsed}GB/{swapTotal}GB",
+        "interval": 2
+    },
+    
+    "disk": {
+        "format": "DISK {used}/{total}",
+        "path": "/",
+        "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)\nAvailable: {free}",
+        "interval": 30
     },
     
     "battery": {
         "states": {
+            "good": 95,
             "warning": 30,
-            "critical": 15
+            "critical": 20,
+            "charge-limit": 80
         },
         "format": "BAT {capacity}%",
         "format-charging": "CHG {capacity}%",
         "format-plugged": "AC {capacity}%",
-        "format-alt": "{time}"
+        "format-full": "FULL",
+        "format-time": "{H}:{M}",
+        "tooltip-format": "Battery: {capacity}%\nTime: {time}\nPower: {power}W\nCycles: {cycles}",
+        "interval": 10
     },
     
     "network": {
-        "format-wifi": "WIFI {signalStrength}%",
-        "format-ethernet": "ETH",
-        "tooltip-format": "{ifname}: {ipaddr}",
+        "format-wifi": "WIFI {signalStrength}% {essid}",
+        "format-ethernet": "ETH {ipaddr}",
+        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nFrequency: {frequency}MHz\nIP: {ipaddr}\nGateway: {gwaddr}",
+        "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "DISCONNECTED",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "OFFLINE",
+        "interval": 5
+    },
+    
+    "bluetooth": {
+        "format": "BT {status}",
+        "format-disabled": "BT OFF",
+        "format-off": "BT OFF",
+        "format-on": "BT ON",
+        "format-connected": "BT {num_connections}",
+        "tooltip-format": "Bluetooth {status}",
+        "tooltip-format-connected": "Bluetooth: {num_connections} connected\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "bluetoothctl power toggle"
     },
     
     "pulseaudio": {
@@ -79,10 +113,11 @@
         "scroll-step": 5,
         "on-click": "pamixer -t",
         "on-click-right": "pavucontrol",
-        "tooltip-format": "{desc}"
+        "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
     },
     
     "tray": {
-        "spacing": 10
+        "icon-size": 16,
+        "spacing": 8
     }
 }
