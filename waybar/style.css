@@ -51,7 +51,10 @@ window#waybar.hidden {
 #clock,
 #battery,
 #cpu,
+#custom-cpu-temp,
 #memory,
+#disk,
+#bluetooth,
 #network,
 #pulseaudio,
 #tray {
@@ -64,10 +67,19 @@ window#waybar.hidden {
     color: #00ff00;
 }
 
+#battery.charge-limit {
+    color: #ffaa00;
+    animation: pulse 2s linear infinite;
+}
+
 #battery.critical:not(.charging) {
     background-color: #ff0000;
     color: #ffffff;
     animation: blink 0.5s linear infinite alternate;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffaa00;
 }
 
 @keyframes blink {
@@ -77,12 +89,41 @@ window#waybar.hidden {
     }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        color: #ffaa00;
+    }
+    50% {
+        color: #ffffff;
+    }
+}
+
 #cpu {
+    color: #ffffff;
+}
+
+#custom-cpu-temp {
     color: #ffffff;
 }
 
 #memory {
     color: #ffffff;
+}
+
+#disk {
+    color: #ffffff;
+}
+
+#bluetooth {
+    color: #ffffff;
+}
+
+#bluetooth.disabled, #bluetooth.off {
+    color: #666666;
+}
+
+#bluetooth.connected {
+    color: #00aaff;
 }
 
 #network {
