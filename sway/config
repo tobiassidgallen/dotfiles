@@ -104,7 +104,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 # Layout stuff:
 # Split in horizontal direction
-bindsym $mod+b splith
+bindsym $mod+h splith
 # Split in vertical direction
 bindsym $mod+v splitv
 
@@ -165,20 +165,18 @@ bindsym XF86AudioMicMute exec pamixer --default-source -t
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-# Additional function keys for HP EliteBook
-bindsym XF86Display exec wdisplays
-bindsym XF86WLAN exec nmcli radio wifi toggle
-bindsym XF86Tools exec $term -e ranger
-bindsym XF86Calculator exec $term -e qalc
-
-# Lock screen
-bindsym $mod+l exec swaylock -f -c 000000
-
-# File manager
+# Applications
+bindsym $mod+Return exec $term
+bindsym $mod+s exec $menu
 bindsym $mod+e exec $term -e ranger
+bindsym $mod+l exec swaylock -f -c 000000
+bindsym $mod+n exec $term -e nvim
+bindsym $mod+m exec $term -e cmus
+bindsym $mod+Shift+m exec spotify
+bindsym $mod+b exec firefox
 
 # System monitor
-bindsym $mod+Shift+p exec $term -e btop
+bindsym $mod+p exec $term -e btop
 
 # Gaps
 gaps inner 5
