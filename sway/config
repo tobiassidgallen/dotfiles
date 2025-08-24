@@ -158,10 +158,10 @@ bindsym Print exec grim - | wl-copy
 bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
 # Volume and brightness control
-bindsym XF86AudioRaiseVolume exec wpctl -i 5
-bindsym XF86AudioLowerVolume exec wpctl -d 5
-bindsym XF86AudioMute exec wpctl -t
-bindsym XF86AudioMicMute exec wpctl --default-source -t
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
