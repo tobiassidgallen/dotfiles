@@ -1,11 +1,8 @@
-# Wofi Config
-# Save as ~/.config/wofi/config
-
 width=400
 height=300
 location=center
 show=drun
-prompt=Launch
+prompt=Run
 filter_rate=100
 allow_markup=true
 no_actions=true
@@ -19,71 +16,3 @@ gtk_dark=true
 matching=fuzzy
 hide_scroll=true
 term=alacritty
-
----
-
-# Wofi Style CSS
-# Save as ~/.config/wofi/style.css
-
-window {
-    margin: 0px;
-    border: 2px solid #313244;
-    background-color: #1e1e2e;
-    border-radius: 0px;
-}
-
-#input {
-    margin: 8px;
-    border: 1px solid #45475a;
-    color: #cdd6f4;
-    background-color: #313244;
-    border-radius: 0px;
-    padding: 8px;
-    font-family: "JetBrains Mono Nerd Font";
-    font-size: 12px;
-}
-
-#inner-box {
-    margin: 8px;
-    border: none;
-    background-color: transparent;
-}
-
-#outer-box {
-    margin: 0px;
-    border: none;
-    background-color: transparent;
-}
-
-#scroll {
-    margin: 0px;
-    border: none;
-}
-
-#text {
-    margin: 8px;
-    border: none;
-    color: #cdd6f4;
-    font-family: "JetBrains Mono Nerd Font";
-    font-size: 11px;
-}
-
-#text:selected {
-    color: #1e1e2e;
-}
-
-#entry {
-    margin: 0px;
-    border: none;
-    border-radius: 0px;
-    background-color: transparent;
-}
-
-#entry:selected {
-    background-color: #89b4fa;
-    color: #1e1e2e;
-}
-
-#entry:hover {
-    background-color: #313244;
-}
