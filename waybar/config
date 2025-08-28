@@ -2,11 +2,25 @@
     "layer": "top",
     "position": "top",
     "height": 24,
+    "margin": "0 0 0 0",
     "spacing": 0,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+    ],
     "modules-center": ["clock"],
-    "modules-right": ["bluetooth", "network", "disk", "cpu", "custom/cpu-temp", "memory", "pulseaudio", "battery", "tray"],
-    
+    "modules-right": [
+        "tray",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "battery",
+        "custom/cpu-temp",
+        "cpu",
+        "memory",
+        "disk",
+    ],
+
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -16,14 +30,19 @@
             "2": [],
             "3": [],
             "4": [],
-            "5": []
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
         }
     },
-    
+
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    
+
     "clock": {
         "format": "{:%m/%d/%Y %H:%M:%S}",
         "tooltip-format": "<tt>{calendar}</tt>",
@@ -38,49 +57,12 @@
             }
         }
     },
-    
-    "cpu": {
-        "format": "CPU {usage}%",
-        "tooltip-format": "CPU Usage: {usage}%\nLoad: {load}",
-        "interval": 2
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
     },
-    
-    "custom/cpu-temp": {
-        "exec": "sensors | grep 'Tctl:' | awk '{print $2}' | sed 's/+//;s/°C//' | head -1",
-        "format": "{}°C",
-        "tooltip": "CPU Temperature",
-        "interval": 2
-    },
-    
-    "memory": {
-        "format": "MEM {used}G/{total}G",
-        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)\nAvailable: {avail}GB\nSwap: {swapUsed}GB/{swapTotal}GB",
-        "interval": 2
-    },
-    
-    "disk": {
-        "format": "DISK {used}/{total}",
-        "path": "/",
-        "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)\nAvailable: {free}",
-        "interval": 30
-    },
-    
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20,
-            "charge-limit": 80
-        },
-        "format": "BAT {capacity}%",
-        "format-charging": "CHG {capacity}%",
-        "format-plugged": "AC {capacity}%",
-        "format-full": "FULL",
-        "format-time": "{H}:{M}",
-        "tooltip-format": "Battery: {capacity}%\nTime: {time}\nPower: {power}W\nCycles: {cycles}",
-        "interval": 10
-    },
-    
+
     "network": {
         "format-wifi": "WIFI {signalStrength}% {essid}",
         "format-ethernet": "ETH {ipaddr}",
@@ -88,9 +70,9 @@
         "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "OFFLINE",
-        "interval": 5
+        "interval": 1
     },
-    
+
     "bluetooth": {
         "format": "BT {status}",
         "format-disabled": "BT OFF",
@@ -114,9 +96,46 @@
         "on-click": "wpctl -t",
         "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
     },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20,
+            "charge-limit": 80
+        },
+        "format": "BAT {capacity}%",
+        "format-charging": "CHG {capacity}%",
+        "format-plugged": "AC {capacity}%",
+        "format-full": "FULL",
+        "format-time": "{H}:{M}",
+        "tooltip-format": "Battery: {capacity}%\nTime: {time}\nPower: {power}W\nCycles: {cycles}",
+        "interval": 1
+    },
+
+    "custom/cpu-temp": {
+        "exec": "sensors | grep 'Tctl:' | awk '{print $2}' | sed 's/+//;s/°C//' | head -1",
+        "format": "{}°C",
+        "tooltip": "CPU Temperature",
+        "interval": 1
+    },
+
+    "cpu": {
+        "format": "CPU {usage}%",
+        "tooltip-format": "CPU Usage: {usage}%\nLoad: {load}",
+        "interval": 1
+    },
     
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8
+    "memory": {
+        "format": "MEM {used}G/{total}G",
+        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)\nAvailable: {avail}GB\nSwap: {swapUsed}GB/{swapTotal}GB",
+        "interval": 1
+    },
+    
+    "disk": {
+        "format": "DISK {used}/{total}",
+        "path": "/",
+        "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)\nAvailable: {free}",
+        "interval": 1
     }
 }
