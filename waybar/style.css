@@ -1,11 +1,8 @@
-/* Waybar style */
-/* Save as ~/.config/waybar/style.css */
-
 * {
     border: none;
     border-radius: 0;
     font-family: "Hack", "Font Awesome 5 Free";
-    font-size: 12px;
+    font-size: 10pt;
     min-height: 0;
 }
 
@@ -57,7 +54,8 @@ window#waybar.hidden {
 #bluetooth,
 #network,
 #pulseaudio,
-#tray {
+#custom/powersave,
+#custom/secure {
     padding: 0 8px;
     color: #ffffff;
     background-color: transparent;
@@ -69,52 +67,18 @@ window#waybar.hidden {
 
 #battery.charge-limit {
     color: #ffaa00;
-    animation: pulse 2s linear infinite;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #ff0000;
-    color: #ffffff;
-    animation: blink 0.5s linear infinite alternate;
+    color: #ff0000;
 }
 
 #battery.warning:not(.charging) {
     color: #ffaa00;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
 
-@keyframes pulse {
-    0%, 100% {
-        color: #ffaa00;
-    }
-    50% {
-        color: #ffffff;
-    }
-}
-
-#cpu {
-    color: #ffffff;
-}
-
-#custom-cpu-temp {
-    color: #ffffff;
-}
-
-#memory {
-    color: #ffffff;
-}
-
-#disk {
-    color: #ffffff;
-}
-
-#bluetooth {
+#cpu, #custom-cpu-temp, #memory, #disk, #bluetooth, #network, #pulseaudio {
     color: #ffffff;
 }
 
@@ -126,31 +90,10 @@ window#waybar.hidden {
     color: #00aaff;
 }
 
-#network {
-    color: #ffffff;
-}
-
 #network.disconnected {
     color: #ff0000;
 }
 
-#pulseaudio {
-    color: #ffffff;
-}
-
 #pulseaudio.muted {
     color: #ff0000;
-}
-
-#tray {
-    background-color: transparent;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #ff0000;
 }
