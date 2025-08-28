@@ -6,11 +6,10 @@
     "spacing": 0,
     "modules-left": [
         "sway/workspaces",
-        "sway/mode",
+        "sway/mode"
     ],
     "modules-center": ["clock"],
     "modules-right": [
-        "tray",
         "network",
         "bluetooth",
         "pulseaudio",
@@ -19,6 +18,8 @@
         "cpu",
         "memory",
         "disk",
+        "custom/powersave",
+        "custom/secure"
     ],
 
     "sway/workspaces": {
@@ -26,16 +27,8 @@
         "all-outputs": true,
         "format": "{index}",
         "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
+            "1": [], "2": [], "3": [], "4": [], "5": [],
+            "6": [], "7": [], "8": [], "9": [], "10": []
         }
     },
 
@@ -58,16 +51,11 @@
         }
     },
 
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8
-    },
-
     "network": {
         "format-wifi": "WIFI {signalStrength}% {essid}",
         "format-ethernet": "ETH {ipaddr}",
-        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nFrequency: {frequency}MHz\nIP: {ipaddr}\nGateway: {gwaddr}",
-        "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}",
+        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%", // Simplified
+        "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}", // Simplified
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "OFFLINE",
         "interval": 1
@@ -84,7 +72,7 @@
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "on-click": "bluetoothctl power toggle"
     },
-    
+
     "pulseaudio": {
         "format": "VOL {volume}%",
         "format-bluetooth": "BVOL {volume}%",
@@ -94,7 +82,7 @@
         "format-source-muted": "MMUTE",
         "scroll-step": 5,
         "on-click": "wpctl -t",
-        "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
+        "tooltip-format": "Volume: {volume}%"
     },
 
     "battery": {
@@ -109,12 +97,12 @@
         "format-plugged": "AC {capacity}%",
         "format-full": "FULL",
         "format-time": "{H}:{M}",
-        "tooltip-format": "Battery: {capacity}%\nTime: {time}\nPower: {power}W\nCycles: {cycles}",
+        "tooltip-format": "Battery: {capacity}%\nTime: {time}", // Simplified
         "interval": 1
     },
 
     "custom/cpu-temp": {
-        "exec": "sensors | grep 'Tctl:' | awk '{print $2}' | sed 's/+//;s/°C//' | head -1",
+        "exec": "echo $(($(cat /sys/class/thermal/thermal_zone*/temp) / 1000))", // Updated
         "format": "{}°C",
         "tooltip": "CPU Temperature",
         "interval": 1
@@ -122,20 +110,36 @@
 
     "cpu": {
         "format": "CPU {usage}%",
-        "tooltip-format": "CPU Usage: {usage}%\nLoad: {load}",
+        "tooltip-format": "CPU Usage: {usage}%",
         "interval": 1
     },
-    
+
     "memory": {
         "format": "MEM {used}G/{total}G",
-        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)\nAvailable: {avail}GB\nSwap: {swapUsed}GB/{swapTotal}GB",
+        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)", // Simplified
         "interval": 1
     },
-    
+
     "disk": {
         "format": "DISK {used}/{total}",
         "path": "/",
-        "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)\nAvailable: {free}",
+        "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)",
         "interval": 1
+    },
+
+    "custom/powersave": { // Added
+        "format": "PWR {output}",
+        "exec": "echo $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)",
+        "interval": 1,
+        "on-click": "/usr/local/bin/powersave",
+        "tooltip": "Toggle Powersave Mode"
+    },
+
+    "custom/secure": { // Added
+        "format": "SEC {output}",
+        "exec": "ufw status | grep -q 'Status: active' && echo ON || echo OFF",
+        "interval": 1,
+        "on-click": "/usr/local/bin/secure",
+        "tooltip": "Toggle Secure Mode"
     }
 }
