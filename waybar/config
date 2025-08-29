@@ -13,6 +13,7 @@
         "network",
         "bluetooth",
         "pulseaudio",
+        "backlight",  // Added for brightness
         "battery",
         "custom/cpu-temp",
         "cpu",
@@ -54,11 +55,13 @@
     "network": {
         "format-wifi": "WIFI {signalStrength}% {essid}",
         "format-ethernet": "ETH {ipaddr}",
-        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%", // Simplified
-        "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}", // Simplified
+        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%",
+        "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "OFFLINE",
-        "interval": 1
+        "interval": 1,
+        "on-click": "nmtui",  // Open network UI
+        "on-click-right": "alacritty -e /usr/local/bin/network"  // Open diagnostics
     },
 
     "bluetooth": {
@@ -70,7 +73,8 @@
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Bluetooth: {num_connections} connected\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "bluetoothctl power toggle"
+        "on-click": "blueman-manager",  // Open Bluetooth UI
+        "on-click-right": "bluetoothctl power toggle"  // Toggle power
     },
 
     "pulseaudio": {
@@ -81,8 +85,17 @@
         "format-source": "MIC {volume}%",
         "format-source-muted": "MMUTE",
         "scroll-step": 5,
-        "on-click": "wpctl -t",
+        "on-click": "pavucontrol",  // Open volume UI
+        "on-click-right": "wpctl -t",  // Toggle mute
         "tooltip-format": "Volume: {volume}%"
+    },
+
+    "backlight": {  // Added
+        "format": "BRT {percent}%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "on-click": "brightnessctl set 50%",  // Reset to 50%
+        "tooltip-format": "Brightness: {percent}%"
     },
 
     "battery": {
@@ -97,37 +110,42 @@
         "format-plugged": "AC {capacity}%",
         "format-full": "FULL",
         "format-time": "{H}:{M}",
-        "tooltip-format": "Battery: {capacity}%\nTime: {time}", // Simplified
-        "interval": 1
+        "tooltip-format": "Battery: {capacity}%\nTime: {time}",
+        "interval": 1,
+        "on-click": "gnome-power-statistics"  // Open power stats (add gnome-power-manager if needed)
     },
 
     "custom/cpu-temp": {
-        "exec": "echo $(($(cat /sys/class/thermal/thermal_zone*/temp) / 1000))", // Updated
+        "exec": "echo $(($(cat /sys/class/thermal/thermal_zone*/temp) / 1000))",
         "format": "{}°C",
         "tooltip": "CPU Temperature",
-        "interval": 1
+        "interval": 1,
+        "on-click": "alacritty -e btop"  // Open btop for CPU monitoring
     },
 
     "cpu": {
         "format": "CPU {usage}%",
         "tooltip-format": "CPU Usage: {usage}%",
-        "interval": 1
+        "interval": 1,
+        "on-click": "alacritty -e btop"  // Open btop
     },
 
     "memory": {
         "format": "MEM {used}G/{total}G",
-        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)", // Simplified
-        "interval": 1
+        "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)",
+        "interval": 1,
+        "on-click": "alacritty -e btop"  // Open btop
     },
 
     "disk": {
         "format": "DISK {used}/{total}",
         "path": "/",
         "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)",
-        "interval": 1
+        "interval": 1,
+        "on-click": "thunar /"  // Open Thunar at root
     },
 
-    "custom/powersave": { // Added
+    "custom/powersave": {
         "format": "PWR {output}",
         "exec": "echo $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)",
         "interval": 1,
@@ -135,7 +153,7 @@
         "tooltip": "Toggle Powersave Mode"
     },
 
-    "custom/secure": { // Added
+    "custom/secure": {
         "format": "SEC {output}",
         "exec": "ufw status | grep -q 'Status: active' && echo ON || echo OFF",
         "interval": 1,
