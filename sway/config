@@ -122,6 +122,11 @@ bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
+# Media controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Brightness controls (Function keys)
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -129,10 +134,16 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # HP EliteBook specific function keys
 bindsym XF86WLAN exec nmcli radio wifi toggle
 bindsym XF86Bluetooth exec bluetoothctl power toggle
+bindsym XF86Display exec kanshi
+bindsym XF86TouchpadToggle exec swaymsg input type:touchpad events toggle enabled disabled
+
+# Power management function keys
+bindsym XF86Sleep exec systemctl suspend
+bindsym XF86PowerOff exec systemctl hibernate
 
 # Application shortcuts
 bindsym $mod+e exec thunar
-bindsym $mod+l exec swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg
+bindsym $mod+l exec swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock
 bindsym $mod+n exec $term -e nvim
 bindsym $mod+b exec firefox
 bindsym $mod+p exec $term -e btop
@@ -146,10 +157,18 @@ bindsym $mod+Shift+n exec makoctl dismiss
 bindsym $mod+Shift+b exec /usr/local/bin/powersave
 bindsym $mod+Shift+s exec /usr/local/bin/secure
 
+# Display management
+bindsym $mod+d exec wdisplays
+bindsym $mod+Shift+d exec kanshi
+
+# Quick actions
+bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d' ' -f4 | wl-copy
+
 # Window rules for productivity
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="Spotify"] move to workspace number 10
 for_window [app_id="pavucontrol"] floating enable, resize set 600 400
+for_window [app_id="wdisplays"] floating enable
 
 # Appearance
 gaps inner 5
@@ -167,7 +186,11 @@ bar {
     swaybar_command waybar
 }
 
+# Include monitor configuration
+include ~/.config/sway/config.d/*
+
 # Startup applications
 exec mako
 exec wlsunset -l 14.6 -L 120.98
-exec swayidle -w timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+exec swayidle -w timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+exec kanshi
