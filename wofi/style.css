@@ -10,7 +10,7 @@ window {
     background-color: #313244;
     padding: 8px;
     font-family: "JetBrains Mono Nerd Font";
-    font-size: 10pt; /* Changed from 12px */
+    font-size: 10px; /* Changed from 12px */
 }
 
 #inner-box {
@@ -33,7 +33,7 @@ window {
     border: none;
     color: #cdd6f4;
     font-family: "JetBrains Mono Nerd Font";
-    font-size: 10pt; /* Changed from 11px */
+    font-size: 10px; /* Changed from 11px */
 }
 
 #text:selected {
