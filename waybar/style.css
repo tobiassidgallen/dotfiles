@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Hack", "Font Awesome 5 Free";
+    font-family: "JetBrains Mono Nerd Font", "Font Awesome 5 Free";
     font-size: 10pt;
     min-height: 0;
 }
@@ -48,17 +48,33 @@ window#waybar.hidden {
 #clock,
 #battery,
 #cpu,
-#custom-cpu-temp,
+#custom\/cpu-temp,
 #memory,
 #disk,
 #bluetooth,
 #network,
 #pulseaudio,
-#custom/powersave,
-#custom/secure {
+#backlight,
+#custom\/powersave,
+#custom\/secure {
     padding: 0 8px;
     color: #ffffff;
     background-color: transparent;
+}
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#custom\/cpu-temp:hover,
+#memory:hover,
+#disk:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom\/powersave:hover,
+#custom\/secure:hover {
+    background-color: #333333;
 }
 
 #battery.charging, #battery.plugged {
@@ -75,11 +91,6 @@ window#waybar.hidden {
 
 #battery.warning:not(.charging) {
     color: #ffaa00;
-}
-
-
-#cpu, #custom-cpu-temp, #memory, #disk, #bluetooth, #network, #pulseaudio {
-    color: #ffffff;
 }
 
 #bluetooth.disabled, #bluetooth.off {
