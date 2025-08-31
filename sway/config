@@ -7,7 +7,8 @@ set $term alacritty
 set $menu wofi --show drun
 
 # Use downloaded wallpaper or fallback to solid color
-output * bg ~/Pictures/wallpapers/desktop.jpg fill || output * bg #1e1e2e
+output * bg #1e1e2e
+exec swaybg -i ~/Pictures/wallpapers/desktop.jpg -m fill
 
 input type:touchpad {
     tap enabled
