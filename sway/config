@@ -157,6 +157,7 @@ bar {
 
 # Startup applications
 exec mako
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wlsunset -l 14.6 -L 120.98
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock' \
