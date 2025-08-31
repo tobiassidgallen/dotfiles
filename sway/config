@@ -26,9 +26,10 @@ input type:touchpad {
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+s exec $menu
+bindsym $mod+Shift+s exec ~/.config/sway/scripts/power-menu.sh
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -b 'Yes' 'swaymsg exit'
 
 # Focus movement
@@ -119,9 +120,6 @@ bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-# HP EliteBook specific function keys
-bindsym XF86WLAN exec nmcli radio wifi toggle
-
 # Application shortcuts
 bindsym $mod+e exec thunar
 bindsym $mod+x exec swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock
@@ -133,10 +131,8 @@ bindsym $mod+Shift+m exec spotify
 bindsym $mod+Escape exec makoctl dismiss-all
 
 # System controls
-bindsym $mod+Shift+r exec wf-recorder -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mp4
+bindsym $mod+Shift+c exec wf-recorder -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mp4
 bindsym $mod+Shift+n exec makoctl dismiss
-bindsym $mod+Shift+b exec /usr/local/bin/powersave
-bindsym $mod+Shift+s exec /usr/local/bin/secure
 
 # Window rules for productivity
 for_window [app_id="pavucontrol"] floating enable, resize set 640 480
