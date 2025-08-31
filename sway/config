@@ -6,8 +6,7 @@ set $right l
 set $term alacritty
 set $menu wofi --show drun
 
-# Use downloaded wallpaper or fallback to solid color
-exec swaybg -i ~/Pictures/wallpapers/desktop.jpg -m fill -c #1e1e2e
+exec swaybg -c #1e1e2e
 
 input type:touchpad {
     tap enabled
@@ -158,10 +157,10 @@ bar {
     swaybar_command waybar
 }
 
-# Include monitor configuration
-include ~/.config/sway/config.d/*
-
 # Startup applications
 exec mako
 exec wlsunset -l 14.6 -L 120.98
-exec swayidle -w timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
