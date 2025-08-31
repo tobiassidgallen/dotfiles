@@ -1,17 +1,17 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands";
+    font-family: "JetBrains Mono Nerd Font";
     font-size: 10pt;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
     transition-property: background-color;
     transition-duration: 0.5s;
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid #313244;
 }
 
 window#waybar.hidden {
@@ -22,26 +22,26 @@ window#waybar.hidden {
 #workspaces button {
     padding: 0 10px;
     background-color: transparent;
-    color: #ffffff;
+    color: #cdd6f4;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
-    background-color: #333333;
-    box-shadow: inset 0 -2px 0 #ffffff;
+    background-color: #313244;
+    box-shadow: inset 0 -2px 0 #89b4fa;
 }
 
 #workspaces button.focused {
-    background-color: #ffffff;
-    color: #000000;
-    border-bottom: 2px solid #ffffff;
+    background-color: #89b4fa;
+    color: #1e1e2e;
+    border-bottom: 2px solid #89b4fa;
     font-weight: bold;
 }
 
 #workspaces button.urgent {
-    background-color: #ff0000;
-    color: #ffffff;
+    background-color: #f38ba8;
+    color: #1e1e2e;
     animation: blink 1s linear infinite alternate;
 }
 
@@ -51,8 +51,8 @@ window#waybar.hidden {
 
 /* Mode indicator */
 #mode {
-    background-color: #ff6600;
-    color: #000000;
+    background-color: #fab387;
+    color: #1e1e2e;
     padding: 0 10px;
     font-weight: bold;
 }
@@ -70,7 +70,7 @@ window#waybar.hidden {
 #backlight,
 #custom\/power {
     padding: 0 10px;
-    color: #ffffff;
+    color: #cdd6f4;
     background-color: transparent;
     transition: background-color 0.3s ease;
     font-weight: 500;
@@ -87,32 +87,33 @@ window#waybar.hidden {
 #pulseaudio:hover,
 #backlight:hover,
 #custom\/power:hover {
-    background-color: #333333;
+    background-color: #313244;
+    cursor: pointer;
 }
 
 /* Clock */
 #clock {
     font-weight: bold;
-    color: #00aaff;
+    color: #89b4fa;
 }
 
 /* Battery states */
 #battery.charging, #battery.plugged {
-    color: #00ff00;
+    color: #a6e3a1;
     animation: pulse 2s ease-in-out infinite alternate;
 }
 
 #battery.charge-limit {
-    color: #ffaa00;
+    color: #f9e2af;
 }
 
 #battery.critical:not(.charging) {
-    color: #ff0000;
+    color: #f38ba8;
     animation: blink 1s linear infinite alternate;
 }
 
 #battery.warning:not(.charging) {
-    color: #ffaa00;
+    color: #fab387;
 }
 
 @keyframes pulse {
@@ -122,70 +123,70 @@ window#waybar.hidden {
 
 /* Bluetooth states */
 #bluetooth.disabled, #bluetooth.off {
-    color: #666666;
+    color: #6c7086;
 }
 
 #bluetooth.connected {
-    color: #00aaff;
+    color: #89b4fa;
 }
 
 /* Network states */
 #network.disconnected {
-    color: #ff0000;
+    color: #f38ba8;
 }
 
 #network.wifi {
-    color: #00ff00;
+    color: #a6e3a1;
 }
 
 #network.ethernet {
-    color: #00aaff;
+    color: #89b4fa;
 }
 
 /* Audio states */
 #pulseaudio.muted {
-    color: #ff0000;
+    color: #f38ba8;
 }
 
 #pulseaudio.bluetooth {
-    color: #00aaff;
+    color: #89b4fa;
 }
 
 /* System monitoring */
 #cpu {
-    color: #ffaa00;
+    color: #fab387;
 }
 
 #custom\/cpu-temp {
-    color: #ff6600;
+    color: #f9e2af;
 }
 
 #custom\/cpu-temp.warning {
-    color: #ff0000;
+    color: #f38ba8;
     animation: blink 1s linear infinite alternate;
 }
 
 #memory {
-    color: #aa00ff;
+    color: #cba6f7;
 }
 
 #disk {
-    color: #00ffaa;
+    color: #94e2d5;
 }
 
 #backlight {
-    color: #ffff00;
+    color: #f9e2af;
 }
 
 /* Power button */
 #custom\/power {
-    color: #ff4444;
+    color: #f38ba8;
     font-size: 12pt;
 }
 
 #custom\/power:hover {
-    background-color: #ff4444;
-    color: #000000;
+    background-color: #f38ba8;
+    color: #1e1e2e;
 }
 
 /* Add some spacing between modules */
