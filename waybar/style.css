@@ -55,8 +55,7 @@ window#waybar.hidden {
 #network,
 #pulseaudio,
 #backlight,
-#custom\/powersave,
-#custom\/secure {
+#custom\/power {
     padding: 0 8px;
     color: #ffffff;
     background-color: transparent;
@@ -72,8 +71,7 @@ window#waybar.hidden {
 #network:hover,
 #pulseaudio:hover,
 #backlight:hover,
-#custom\/powersave:hover,
-#custom\/secure:hover {
+#custom\/power:hover {
     background-color: #333333;
 }
 
