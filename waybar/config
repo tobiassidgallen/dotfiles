@@ -115,7 +115,7 @@
     },
 
     "custom/cpu-temp": {
-        "exec": ""sensors | awk '/temp1/ {print int($2)}'",
+        "exec": "sensors | awk '/temp1/ {print int($2)}'",
         "format": "{}°C",
         "tooltip": "CPU Temperature",
         "interval": 2,
