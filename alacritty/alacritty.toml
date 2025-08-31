@@ -47,4 +47,4 @@ program = "/usr/bin/fish"  # Set fish as default shell
 args = ["--login"]  # Ensure fish loads profile
 
 [env]
-TERM = "xterm-256color"  # For Neovim/LazyVim compatibility
+TERM = "alacritty"
