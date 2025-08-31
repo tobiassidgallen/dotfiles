@@ -9,12 +9,6 @@ set $menu wofi --show drun
 # Use downloaded wallpaper or fallback to solid color
 output * bg ~/Pictures/wallpapers/desktop.jpg fill fallback #1e1e2e
 
-input type:keyboard {
-    xkb_options caps:escape
-    repeat_delay 300
-    repeat_rate 50
-}
-
 input type:touchpad {
     tap enabled
     tap_button_map lrm
