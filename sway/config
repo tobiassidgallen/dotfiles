@@ -131,7 +131,6 @@ bindsym $mod+Shift+m exec spotify
 bindsym $mod+Escape exec makoctl dismiss-all
 
 # System controls
-bindsym $mod+Shift+c exec wf-recorder -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mp4
 bindsym $mod+Shift+n exec makoctl dismiss
 
 # Window rules for productivity
