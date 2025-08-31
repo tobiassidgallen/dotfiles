@@ -123,10 +123,6 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # HP EliteBook specific function keys
 bindsym XF86WLAN exec nmcli radio wifi toggle
 
-# Power management function keys
-bindsym XF86Sleep exec systemctl suspend
-bindsym XF86PowerOff exec systemctl hibernate
-
 # Application shortcuts
 bindsym $mod+e exec thunar
 bindsym $mod+l exec swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock
@@ -138,7 +134,6 @@ bindsym $mod+Shift+m exec spotify
 bindsym $mod+Escape exec makoctl dismiss-all
 
 # System controls
-bindsym $mod+Shift+h exec systemctl hibernate
 bindsym $mod+Shift+r exec wf-recorder -f ~/Videos/recording-$(date +%Y%m%d-%H%M%S).mp4
 bindsym $mod+Shift+n exec makoctl dismiss
 bindsym $mod+Shift+b exec /usr/local/bin/powersave
