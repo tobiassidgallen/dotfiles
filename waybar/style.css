@@ -88,7 +88,6 @@ window#waybar.hidden {
 #backlight:hover,
 #custom\/power:hover {
     background-color: #313244;
-    cursor: pointer;
 }
 
 /* Clock */
