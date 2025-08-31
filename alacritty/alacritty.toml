@@ -38,12 +38,11 @@ bindings = [
 
 [mouse]
 hide_when_typing = true
-save_to_clipboard = true
 
 [general]
 live_config_reload = true
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"  # Set fish as default shell
 args = ["--login"]  # Ensure fish loads profile
 
