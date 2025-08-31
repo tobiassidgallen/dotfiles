@@ -34,7 +34,6 @@ bindings = [
     { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
     { key = "Key0", mods = "Control", action = "ResetFontSize" },
     { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
-    { key = "W", mods = "Control|Shift", action = "Quit" },  # Close terminal
 ]
 
 [mouse]
