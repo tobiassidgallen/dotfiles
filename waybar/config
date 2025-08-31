@@ -37,37 +37,37 @@
     },
 
     "clock": {
-        "format": " {:%m/%d/%Y %H:%M:%S}",
+        "format": "󰃭 {:%m/%d/%Y %H:%M:%S}",
         "tooltip-format": "<tt>{calendar}</tt>",
         "interval": 1,
         "calendar": {
             "mode": "month",
             "format": {
-                "months": "<span color='#ffffff'><b>{}</b></span>",
-                "days": "<span color='#ffffff'>{}</span>",
-                "weekdays": "<span color='#ffffff'><b>{}</b></span>",
-                "today": "<span color='#ff6600'><b><u>{}</u></b></span>"
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'>{}</span>",
+                "weekdays": "<span color='#cdd6f4'><b>{}</b></span>",
+                "today": "<span color='#fab387'><b><u>{}</u></b></span>"
             }
         }
     },
 
     "network": {
-        "format-wifi": " {signalStrength}% {essid}",
-        "format-ethernet": " {ipaddr}",
+        "format-wifi": "󰤨 {signalStrength}% {essid}",
+        "format-ethernet": "󰈀 {ipaddr}",
         "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%",
         "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": " OFFLINE",
+        "format-linked": "󰈂 {ifname} (No IP)",
+        "format-disconnected": "󰤭 OFFLINE",
         "interval": 2,
         "on-click-right": "alacritty -e /usr/local/bin/network"
     },
 
     "bluetooth": {
-        "format": " {status}",
-        "format-disabled": " OFF",
-        "format-off": " OFF",
-        "format-on": " ON",
-        "format-connected": " {num_connections}",
+        "format": "󰂯 {status}",
+        "format-disabled": "󰂲 OFF",
+        "format-off": "󰂲 OFF",
+        "format-on": "󰂯 ON",
+        "format-connected": "󰂱 {num_connections}",
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Bluetooth: {num_connections} connected\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -76,12 +76,12 @@
     },
 
     "pulseaudio": {
-        "format": " {volume}%",
-        "format-bluetooth": " {volume}%",
-        "format-bluetooth-muted": " MUTE",
-        "format-muted": " MUTE",
-        "format-source": " {volume}%",
-        "format-source-muted": " MUTE",
+        "format": "󰕾 {volume}%",
+        "format-bluetooth": "󰂰 {volume}%",
+        "format-bluetooth-muted": "󰂲 MUTE",
+        "format-muted": "󰖁 MUTE",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭 MUTE",
         "scroll-step": 5,
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -89,7 +89,7 @@
     },
 
     "backlight": {
-        "format": " {percent}%",
+        "format": "󰃟 {percent}%",
         "on-scroll-up": "brightnessctl set +5%",
         "on-scroll-down": "brightnessctl set 5%-",
         "on-click": "brightnessctl set 50%",
@@ -103,10 +103,10 @@
             "critical": 20,
             "charge-limit": 80
         },
-        "format": " {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-full": " FULL",
+        "format": "󰁹 {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-full": "󰁹 FULL",
         "format-time": "{H}:{M}",
         "tooltip-format": "Battery: {capacity}%\nTime: {time}",
         "interval": 2,
@@ -115,28 +115,28 @@
 
     "custom/cpu-temp": {
         "exec": "sensors | awk '/temp1/ {print int($2)}'",
-        "format": " {}°C",
+        "format": "󰏈 {}°C",
         "tooltip": "CPU Temperature",
         "interval": 2,
         "on-click": "alacritty -e btop"
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "󰘚 {usage}%",
         "tooltip-format": "CPU Usage: {usage}%",
         "interval": 2,
         "on-click": "alacritty -e btop"
     },
 
     "memory": {
-        "format": " {used}G/{total}G",
+        "format": "󰍛 {used}G/{total}G",
         "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)",
         "interval": 2,
         "on-click": "alacritty -e btop"
     },
 
     "disk": {
-        "format": " {used}/{total}",
+        "format": "󰋊 {used}/{total}",
         "path": "/",
         "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)",
         "interval": 30,
@@ -144,7 +144,7 @@
     },
 
     "custom/power": {
-        "format": "",
+        "format": "󰐥",
         "tooltip": "Power Menu",
         "on-click": "~/.config/sway/scripts/power-menu.sh"
     }
