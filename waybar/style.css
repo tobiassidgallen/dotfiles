@@ -90,6 +90,21 @@ window#waybar.hidden {
     background-color: #313244;
 }
 
+/* Separators */
+#custom\/separator1,
+#custom\/separator2,
+#custom\/separator3,
+#custom\/separator4,
+#custom\/separator5,
+#custom\/separator6,
+#custom\/separator7,
+#custom\/separator8,
+#custom\/separator9 {
+    color: #6c7086;
+    padding: 0 5px;
+    font-weight: normal;
+}
+
 /* Clock */
 #clock {
     font-weight: bold;
