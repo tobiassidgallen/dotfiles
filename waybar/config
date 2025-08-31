@@ -18,7 +18,8 @@
         "custom/cpu-temp",
         "cpu",
         "memory",
-        "disk"
+        "disk",
+        "custom/power"
     ],
 
     "sway/workspaces": {
@@ -141,5 +142,11 @@
         "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)",
         "interval": 30,
         "on-click": "thunar /"
+    },
+
+    "custom/power": {
+        "format": "PWR",
+        "tooltip": "Power Menu",
+        "on-click": "~/.config/sway/scripts/power-menu.sh"
     }
 }
