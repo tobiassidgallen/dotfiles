@@ -6,8 +6,6 @@ set $right l
 set $term alacritty
 set $menu wofi --show drun
 
-output * resolution 1920x1080 position 0,0 scale 1
-
 font pango:Liberation Sans 10
 
 exec swaybg -c #1e1e2e
