@@ -1,4 +1,4 @@
-font="JetBrains Mono Nerd Font" 10
+font="Inter" 10
 background-color=#1e1e2e
 text-color=#cdd6f4
 border-color=#313244
@@ -10,7 +10,7 @@ margin=10
 padding=8
 anchor=top-right
 layer=overlay
-default-timeout=10000
+default-timeout=5000
 ignore-timeout=1
 sort=-time
 icons=1
@@ -18,21 +18,21 @@ max-icon-size=32
 icon-path=/usr/share/icons/Papirus-Dark
 group-by=app-name
 max-visible=5
-max-history=20
+max-history=25
 actions=1
 format=<b>%s</b>\n%b
+markup=1
+on-button-left=dismiss
+on-button-right=dismiss-all
 
 [urgency=low]
 border-color=#6c7086
-default-timeout=5000
+default-timeout=3000
 
 [urgency=normal]
 border-color=#89b4fa
-default-timeout=10000
+default-timeout=5000
 
 [urgency=high]
 border-color=#f38ba8
-default-timeout=15000
-
-[app-name="Firefox"]
-border-color=#fab387
+default-timeout=5000
