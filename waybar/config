@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 24,
-    "margin": "0 0 0 0",
+    "height": 30,
+    "margin": "5 10 0 10",
     "spacing": 0,
     "modules-left": [
         "sway/workspaces",
@@ -68,7 +68,7 @@
         "format-linked": "󰈂 {ifname} (No IP)",
         "format-disconnected": "󰤭 OFFLINE",
         "interval": 2,
-        "on-click-right": "alacritty -e /usr/local/bin/network"
+        "on-click": "iwgtk"
     },
 
     "bluetooth": {
@@ -80,7 +80,7 @@
         "tooltip-format": "Bluetooth {status}",
         "tooltip-format-connected": "Bluetooth: {num_connections} connected\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "blueman-manager",
+        "on-click": "blueberry",
         "on-click-right": "rfkill toggle bluetooth"
     },
 
