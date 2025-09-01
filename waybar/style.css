@@ -66,11 +66,11 @@ window#waybar.hidden {
 #pulseaudio,
 #backlight,
 #battery,
-#custom\/cpu-temp,
+#custom-cpu-temp,
 #cpu,
 #memory,
 #disk,
-#custom\/power {
+#custom-power {
     padding: 0 10px;
     color: #cdd6f4;
     background-color: transparent;
@@ -84,11 +84,11 @@ window#waybar.hidden {
 #pulseaudio:hover,
 #backlight:hover,
 #battery:hover,
-#custom\/cpu-temp:hover,
+#custom-cpu-temp:hover,
 #cpu:hover,
 #memory:hover,
 #disk:hover,
-#custom\/power:hover {
+#custom-power:hover {
     background-color: #313244;
 }
 
@@ -173,11 +173,11 @@ window#waybar.hidden {
     color: #fab387;
 }
 
-#custom\/cpu-temp {
+#custom-cpu-temp {
     color: #f9e2af;
 }
 
-#custom\/cpu-temp.warning {
+#custom-cpu-temp.warning {
     color: #f38ba8;
     animation: blink 1s linear infinite alternate;
 }
@@ -195,7 +195,7 @@ window#waybar.hidden {
 }
 
 /* Power button */
-#custom\/power {
+#custom-power {
     color: #f38ba8;
     font-size: 13pt;
     font-weight: bold;
@@ -203,7 +203,7 @@ window#waybar.hidden {
     padding: 0 12px;
 }
 
-#custom\/power:hover {
+#custom-power:hover {
     background-color: #f38ba8;
     color: #1e1e2e;
     box-shadow: 0 0 6px #f38ba8;
