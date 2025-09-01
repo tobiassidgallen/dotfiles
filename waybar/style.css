@@ -197,12 +197,16 @@ window#waybar.hidden {
 /* Power button */
 #custom\/power {
     color: #f38ba8;
-    font-size: 12pt;
+    font-size: 13pt;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 0 12px;
 }
 
 #custom\/power:hover {
     background-color: #f38ba8;
     color: #1e1e2e;
+    box-shadow: 0 0 6px #f38ba8;
 }
 
 /* Add some spacing between modules */
