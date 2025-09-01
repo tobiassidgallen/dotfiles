@@ -138,7 +138,7 @@ for_window [app_id="thunar"] floating enable, resize set 1280 720
 for_window [app_id="obsidian"] floating enable, resize set 1600 900
 for_window [app_id="cmus"] floating enable, resize set 800 600
 for_window [app_id="spotify"] floating enable, resize set 1280 720
-for_window [app_id="blueman-manager"] floating enable, resize set 640 480
+for_window [app_id="blueberry"] floating enable, resize set 640 480
 for_window [app_id="pavucontrol"] floating enable, resize set 640 480
 
 # Appearance
