@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
-    "margin": "5 10 0 10",
+    "height": 25,
+    "margin": "3 3 0 3",
     "spacing": 0,
     "modules-left": [
         "sway/workspaces",
@@ -28,7 +28,8 @@
         "custom/separator8",
         "disk",
         "custom/separator9",
-        "custom/power"
+        "custom/power",
+        "custom/separator10"
     ],
 
     "sway/workspaces": {
@@ -193,6 +194,11 @@
     },
 
     "custom/separator9": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    "custom/separator10": {
         "format": "|",
         "tooltip": false
     },
