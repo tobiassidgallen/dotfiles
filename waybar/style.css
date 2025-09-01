@@ -61,15 +61,15 @@ window#waybar.hidden {
 
 /* All modules general styling */
 #clock,
-#battery,
-#cpu,
-#custom\/cpu-temp,
-#memory,
-#disk,
-#bluetooth,
 #network,
+#bluetooth,
 #pulseaudio,
 #backlight,
+#battery,
+#custom\/cpu-temp,
+#cpu,
+#memory,
+#disk,
 #custom\/power {
     padding: 0 10px;
     color: #cdd6f4;
@@ -79,15 +79,15 @@ window#waybar.hidden {
 }
 
 #clock:hover,
-#battery:hover,
-#cpu:hover,
-#custom\/cpu-temp:hover,
-#memory:hover,
-#disk:hover,
-#bluetooth:hover,
 #network:hover,
+#bluetooth:hover,
 #pulseaudio:hover,
 #backlight:hover,
+#battery:hover,
+#custom\/cpu-temp:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
 #custom\/power:hover {
     background-color: #313244;
 }
