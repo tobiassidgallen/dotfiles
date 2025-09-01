@@ -4,10 +4,10 @@ opacity = 1.0
 decorations = "None"
 startup_mode = "Windowed"
 dynamic_title = true
-class = { instance = "Alacritty", general = "Alacritty" }  # Added for Sway rules
+class = { instance = "Alacritty", general = "Alacritty" }
 
 [scrolling]
-history = 5000  # Reduced for lighter memory
+history = 5000
 multiplier = 3
 
 [font]
@@ -43,8 +43,8 @@ hide_when_typing = true
 live_config_reload = true
 
 [terminal.shell]
-program = "/usr/bin/fish"  # Set fish as default shell
-args = ["--login"]  # Ensure fish loads profile
+program = "/usr/bin/fish"
+args = ["--login"]
 
 [env]
 TERM = "alacritty"
