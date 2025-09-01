@@ -67,8 +67,7 @@
         "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}",
         "format-linked": "󰈂 {ifname} (No IP)",
         "format-disconnected": "󰤭 OFFLINE",
-        "interval": 2,
-        "on-click": "alacritty -e nmcli device wifi list"
+        "interval": 2
     },
 
     "bluetooth": {
