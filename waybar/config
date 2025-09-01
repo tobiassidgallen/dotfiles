@@ -68,7 +68,7 @@
         "format-linked": "󰈂 {ifname} (No IP)",
         "format-disconnected": "󰤭 OFFLINE",
         "interval": 2,
-        "on-click": "iwgtk"
+        "on-click": "alacritty -e nmcli device wifi list"
     },
 
     "bluetooth": {
