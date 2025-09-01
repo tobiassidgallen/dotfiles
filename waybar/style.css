@@ -8,8 +8,8 @@
 
 window#waybar {
     background-color: rgba(30, 30, 46, 0.9);
-    border-radius: 10px;
-    margin: 5px 10px 0px 10px;
+    border-radius: 5px;
+    margin: 3px 3px 0px 3px;
     color: #cdd6f4;
     transition-property: background-color;
     transition-duration: 0.5s;
@@ -101,7 +101,8 @@ window#waybar.hidden {
 #custom\/separator6,
 #custom\/separator7,
 #custom\/separator8,
-#custom\/separator9 {
+#custom\/separator9,
+#custom\/separator10 {
     color: #6c7086;
     padding: 0 5px;
     font-weight: normal;
