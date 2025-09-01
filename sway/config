@@ -6,6 +6,10 @@ set $right l
 set $term alacritty
 set $menu wofi --show drun
 
+output * resolution 1920x1080 position 0,0 scale 1
+
+font pango:Liberation Sans 10
+
 exec swaybg -c #1e1e2e
 
 input type:touchpad {
@@ -105,8 +109,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Screenshots
-bindsym $mod+Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
-bindsym $mod+Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Print exec grim ~/Pictures/screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png
 bindsym Print exec grim - | wl-copy
 bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
