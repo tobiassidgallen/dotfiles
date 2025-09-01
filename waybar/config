@@ -28,8 +28,7 @@
         "custom/separator8",
         "disk",
         "custom/separator9",
-        "custom/power",
-        "custom/separator10"
+        "custom/power"
     ],
 
     "sway/workspaces": {
@@ -194,11 +193,6 @@
     },
 
     "custom/separator9": {
-        "format": "|",
-        "tooltip": false
-    },
-
-    "custom/separator10": {
         "format": "|",
         "tooltip": false
     },
