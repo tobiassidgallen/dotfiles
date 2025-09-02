@@ -130,6 +130,7 @@ bindsym $mod+b exec firefox
 bindsym $mod+p exec $term --class btop-monitor -e btop
 bindsym $mod+m exec $term --class cmus-player -e cmus
 bindsym $mod+Shift+m exec env ELECTRON_OZONE_PLATFORM_HINT=wayland logseq
+bindsym $mod+Shift+c exec cheese
 bindsym $mod+Escape exec makoctl dismiss
 bindsym $mod+Shift+Escape exec makoctl dismiss-all
 
@@ -137,6 +138,7 @@ bindsym $mod+Shift+Escape exec makoctl dismiss-all
 for_window [app_id="thunar"] floating enable, resize set 1280 800
 for_window [app_id="Logseq"] floating enable, resize set 1680 1050
 for_window [app_id="cmus-player"] floating enable, resize set 800 500
+for_window [app_id="cheese"] floating enable, resize set 1440 900
 for_window [app_id="blueberry"] floating enable, resize set 640 400
 for_window [app_id="pavucontrol"] floating enable, resize set 640 400
 for_window [app_id="btop-monitor"] floating enable, resize set 1440 900
