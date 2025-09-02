@@ -5,60 +5,51 @@
     font-size: 10pt;
     min-height: 0;
 }
-
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.9);
+    background-color: rgba(39, 40, 34, 0.9);
     border-radius: 5px;
     margin: 3px 3px 0px 3px;
-    color: #cdd6f4;
+    color: #f8f8f2;
     transition-property: background-color;
     transition-duration: 0.5s;
-    border-bottom: 1px solid #313244;
+    border-bottom: 1px solid #49483e;
 }
-
 window#waybar.hidden {
     opacity: 0.2;
 }
-
 /* Workspaces */
 #workspaces button {
     padding: 0 10px;
     background-color: transparent;
-    color: #cdd6f4;
+    color: #f8f8f2;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
 }
-
 #workspaces button:hover {
-    background-color: #313244;
-    box-shadow: inset 0 -2px 0 #89b4fa;
+    background-color: #49483e;
+    box-shadow: inset 0 -2px 0 #66d9ef;
 }
-
 #workspaces button.focused {
-    background-color: #89b4fa;
-    color: #1e1e2e;
-    border-bottom: 2px solid #89b4fa;
+    background-color: #66d9ef;
+    color: #272822;
+    border-bottom: 2px solid #66d9ef;
     font-weight: bold;
 }
-
 #workspaces button.urgent {
-    background-color: #f38ba8;
-    color: #1e1e2e;
+    background-color: #f92672;
+    color: #272822;
     animation: blink 1s linear infinite alternate;
 }
-
 @keyframes blink {
     to { opacity: 0.5; }
 }
-
 /* Mode indicator */
 #mode {
-    background-color: #fab387;
-    color: #1e1e2e;
+    background-color: #f4bf75;
+    color: #272822;
     padding: 0 10px;
     font-weight: bold;
 }
-
 /* All modules general styling */
 #clock,
 #network,
@@ -72,12 +63,11 @@ window#waybar.hidden {
 #disk,
 #custom-power {
     padding: 0 10px;
-    color: #cdd6f4;
+    color: #f8f8f2;
     background-color: transparent;
     transition: background-color 0.3s ease;
     font-weight: 500;
 }
-
 #clock:hover,
 #network:hover,
 #bluetooth:hover,
@@ -89,9 +79,8 @@ window#waybar.hidden {
 #memory:hover,
 #disk:hover,
 #custom-power:hover {
-    background-color: #313244;
+    background-color: #49483e;
 }
-
 /* Separators */
 #custom\/separator1,
 #custom\/separator2,
@@ -102,33 +91,31 @@ window#waybar.hidden {
 #custom\/separator7,
 #custom\/separator8,
 #custom\/separator9 {
-    color: #6c7086;
+    color: #75715e;
     padding: 0 5px;
     font-weight: normal;
 }
-
 /* Clock */
 #clock {
     font-weight: bold;
-    color: #89b4fa;
+    color: #66d9ef;
 }
-
 /* Battery states */
 #battery.critical {
-    color: #f38ba8; /* Red = 0–20% */
+    color: #f92672; /* Red = 0–20% */
     animation: blink 1s linear infinite alternate;
 }
 #battery.warning {
-    color: #fab387; /* Orange = 21–30% */
+    color: #f4bf75; /* Orange = 21–30% */
 }
 #battery.caution {
-    color: #f9e2af; /* Yellow = 31–50% */
+    color: #e6db74; /* Yellow = 31–50% */
 }
 #battery.normal {
-    color: #a6e3a1; /* Green = 51–80% */
+    color: #a6e22e; /* Green = 51–80% */
 }
 #battery.full {
-    color: #f38ba8; /* Red = 81–100% */
+    color: #f92672; /* Red = 81–100% */
 }
 @keyframes pulse {
     from { opacity: 0.8; }
@@ -137,79 +124,63 @@ window#waybar.hidden {
 @keyframes blink {
     to { opacity: 0.5; }
 }
-
 /* Bluetooth states */
 #bluetooth.disabled, #bluetooth.off {
-    color: #6c7086;
+    color: #75715e;
 }
-
 #bluetooth.connected {
-    color: #89b4fa;
+    color: #66d9ef;
 }
-
 /* Network states */
 #network.disconnected {
-    color: #f38ba8;
+    color: #f92672;
 }
-
 #network.wifi {
-    color: #a6e3a1;
+    color: #a6e22e;
 }
-
 #network.ethernet {
-    color: #89b4fa;
+    color: #66d9ef;
 }
-
 /* Audio states */
 #pulseaudio.muted {
-    color: #f38ba8;
+    color: #f92672;
 }
-
 #pulseaudio.bluetooth {
-    color: #89b4fa;
+    color: #66d9ef;
 }
-
 /* System monitoring */
 #cpu {
-    color: #fab387;
+    color: #f4bf75;
 }
-
 #custom-cpu-temp {
-    color: #f9e2af;
+    color: #e6db74;
 }
-
 #custom-cpu-temp.warning {
-    color: #f38ba8;
+    color: #f92672;
     animation: blink 1s linear infinite alternate;
 }
-
 #memory {
-    color: #cba6f7;
+    color: #ae81ff;
 }
-
 #disk {
-    color: #94e2d5;
+    color: #a1efe4;
 }
-
 #backlight {
-    color: #f9e2af;
+    color: #e6db74;
 }
-
 /* Power button */
 #custom-power {
-    color: #f38ba8;
+    color: #f92672;
     font-size: 13pt;
     font-weight: bold;
     border-radius: 6px;
     padding: 0 12px;
 }
-
 #custom-power:hover {
-    background-color: #f38ba8;
-    color: #1e1e2e;
-    box-shadow: 0 0 6px #f38ba8;
+    background-color: #f92672;
+    color: #272822;
+    box-shadow: 0 0 6px #f92672;
 }
-
 /* Add some spacing between modules */
 .modules-right > widget:not(:last-child) {
     margin-right: 2px;
