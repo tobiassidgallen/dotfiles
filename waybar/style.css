@@ -6,13 +6,13 @@
     min-height: 0;
 }
 window#waybar {
-    background-color: rgba(39, 40, 34, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     border-radius: 5px;
     margin: 3px 3px 0px 3px;
     color: #f8f8f2;
     transition-property: background-color;
     transition-duration: 0.5s;
-    border-bottom: 1px solid #49483e;
+    border-bottom: 1px solid #75715e;
 }
 window#waybar.hidden {
     opacity: 0.2;
@@ -26,18 +26,18 @@ window#waybar.hidden {
     transition: all 0.3s ease;
 }
 #workspaces button:hover {
-    background-color: #49483e;
+    background-color: #75715e;
     box-shadow: inset 0 -2px 0 #66d9ef;
 }
 #workspaces button.focused {
     background-color: #66d9ef;
-    color: #272822;
+    color: #000000;
     border-bottom: 2px solid #66d9ef;
     font-weight: bold;
 }
 #workspaces button.urgent {
     background-color: #f92672;
-    color: #272822;
+    color: #000000;
     animation: blink 1s linear infinite alternate;
 }
 @keyframes blink {
@@ -45,8 +45,8 @@ window#waybar.hidden {
 }
 /* Mode indicator */
 #mode {
-    background-color: #f4bf75;
-    color: #272822;
+    background-color: #e6db74;
+    color: #000000;
     padding: 0 10px;
     font-weight: bold;
 }
@@ -79,7 +79,7 @@ window#waybar.hidden {
 #memory:hover,
 #disk:hover,
 #custom-power:hover {
-    background-color: #49483e;
+    background-color: #75715e;
 }
 /* Separators */
 #custom\/separator1,
@@ -106,7 +106,7 @@ window#waybar.hidden {
     animation: blink 1s linear infinite alternate;
 }
 #battery.warning {
-    color: #f4bf75; /* Orange = 21–30% */
+    color: #e6db74; /* Yellow = 21–30% */
 }
 #battery.caution {
     color: #e6db74; /* Yellow = 31–50% */
@@ -150,7 +150,7 @@ window#waybar.hidden {
 }
 /* System monitoring */
 #cpu {
-    color: #f4bf75;
+    color: #e6db74;
 }
 #custom-cpu-temp {
     color: #e6db74;
@@ -178,7 +178,7 @@ window#waybar.hidden {
 }
 #custom-power:hover {
     background-color: #f92672;
-    color: #272822;
+    color: #000000;
     box-shadow: 0 0 6px #f92672;
 }
 /* Add some spacing between modules */
