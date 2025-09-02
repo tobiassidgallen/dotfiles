@@ -8,7 +8,7 @@ set $menu wofi --show drun
 
 font pango:Liberation Sans 10
 
-exec swaybg -c #000000
+exec swaybg -c #272822
 
 input type:touchpad {
     tap enabled
@@ -124,7 +124,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # Application shortcuts
 bindsym $mod+e exec thunar
-bindsym $mod+x exec swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock
+bindsym $mod+x exec swaylock -f -c 272822 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock
 bindsym $mod+n exec $term -e nvim
 bindsym $mod+b exec firefox
 bindsym $mod+p exec $term --class btop-monitor -e btop
@@ -154,7 +154,7 @@ default_floating_border pixel 2
 # True Monokai theme (matching btop)
 client.focused          #66d9ef #000000 #f8f8f2 #66d9ef #66d9ef
 client.focused_inactive #75715e #000000 #f8f8f2 #75715e #75715e
-client.unfocused        #75715e #000000 #a59f85 #75715e #75715e
+client.unfocused        #75715e #000000 #75715e #75715e #75715e
 client.urgent           #f92672 #000000 #f8f8f2 #f92672 #f92672
 
 bar {
@@ -166,6 +166,6 @@ exec mako
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wlsunset -l 14.6 -L 120.98
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock' \
+    timeout 300 'swaylock -f -c 272822 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock' \
     timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"'
