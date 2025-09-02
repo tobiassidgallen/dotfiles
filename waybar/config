@@ -114,7 +114,6 @@
         "format": "󰁹 {capacity}%",
         "format-charging": "󰂄 {capacity}%",
         "format-plugged": "󰚥 {capacity}%",
-        "format-full": "󰁹 FULL",
         "format-time": "{H}:{M}",
         "tooltip-format": "Battery: {capacity}%\nTime: {time}",
         "interval": 2,
