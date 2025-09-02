@@ -1,12 +1,12 @@
 window {
-    border: 2px solid #313244;
-    background-color: #1e1e2e;
+    border: 2px solid #49483e;
+    background-color: #272822;
 }
 #input {
     margin: 8px;
-    border: 1px solid #45475a;
-    color: #cdd6f4;
-    background-color: #313244;
+    border: 1px solid #75715e;
+    color: #f8f8f2;
+    background-color: #49483e;
     padding: 8px;
     font-family: "Inter";
     font-size: 10px;
@@ -26,21 +26,21 @@ window {
 #text {
     margin: 8px;
     border: none;
-    color: #cdd6f4;
+    color: #f8f8f2;
     font-family: "Inter";
     font-size: 10px;
 }
 #text:selected {
-    color: #1e1e2e;
+    color: #272822;
 }
 #entry {
     border: none;
     background-color: transparent;
 }
 #entry:selected {
-    background-color: #89b4fa;
-    color: #1e1e2e;
+    background-color: #66d9ef;
+    color: #272822;
 }
 #entry:hover {
-    background-color: #313244;
+    background-color: #49483e;
 }
