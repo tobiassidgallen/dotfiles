@@ -135,21 +135,32 @@ window#waybar.hidden {
     color: #f92672; /* Red = 81–100% (Battery health protection) */
 }
 
-/* WiFi Signal Strength States */
-#network.wifi[data-signal="0-25"] {
-    color: #f92672; /* Red = 0-25% signal */
+/* Network/WiFi states */
+#network.disconnected,
+#custom-wifi.disconnected {
+    color: #f92672; /* Red for disconnected */
 }
 
-#network.wifi[data-signal="26-50"] {
-    color: #fd971f; /* Orange = 26-50% signal */
+#network.ethernet,
+#custom-wifi.ethernet {
+    color: #66d9ef; /* Cyan for ethernet */
 }
 
-#network.wifi[data-signal="51-75"] {
+/* WiFi signal strength colors */
+#custom-wifi.excellent {
+    color: #a6e22e; /* Green = 76-100% signal */
+}
+
+#custom-wifi.good {
     color: #e6db74; /* Yellow = 51-75% signal */
 }
 
-#network.wifi[data-signal="76-100"] {
-    color: #a6e22e; /* Green = 76-100% signal */
+#custom-wifi.fair {
+    color: #fd971f; /* Orange = 26-50% signal */
+}
+
+#custom-wifi.weak {
+    color: #f92672; /* Red = 0-25% signal */
 }
 
 /* CPU Temperature States (Custom script needed) */
@@ -213,15 +224,6 @@ window#waybar.hidden {
     color: #66d9ef;
 }
 
-/* Network states */
-#network.disconnected {
-    color: #f92672;
-}
-
-#network.ethernet {
-    color: #66d9ef;
-}
-
 /* Audio states */
 #pulseaudio.muted {
     color: #f92672;
@@ -263,8 +265,4 @@ window#waybar.hidden {
 @keyframes pulse {
     from { opacity: 0.8; }
     to { opacity: 1.0; }
-}
-
-@keyframes blink {
-    to { opacity: 0.5; }
 }
