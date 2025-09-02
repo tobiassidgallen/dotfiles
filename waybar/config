@@ -118,7 +118,7 @@
         "format-time": "{H}:{M}",
         "tooltip-format": "Battery: {capacity}%\nTime: {time}",
         "interval": 2,
-        "on-click": "alacritty -e btop"
+        "on-click": "alacritty --class btop-monitor -e btop"
     },
 
     "custom/cpu-temp": {
@@ -126,21 +126,21 @@
         "format": "󰏈 {}°C",
         "tooltip": "CPU Temperature",
         "interval": 2,
-        "on-click": "alacritty -e btop"
+        "on-click": "alacritty --class btop-monitor -e btop"
     },
 
     "cpu": {
         "format": "󰘚 {usage}%",
         "tooltip-format": "CPU Usage: {usage}%",
         "interval": 2,
-        "on-click": "alacritty -e btop"
+        "on-click": "alacritty --class btop-monitor -e btop"
     },
 
     "memory": {
         "format": "󰍛 {used}G/{total}G",
         "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)",
         "interval": 2,
-        "on-click": "alacritty -e btop"
+        "on-click": "alacritty --class btop-monitor -e btop"
     },
 
     "disk": {
