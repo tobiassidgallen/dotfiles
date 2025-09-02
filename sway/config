@@ -138,7 +138,7 @@ bindsym $mod+Shift+Escape exec makoctl dismiss-all
 for_window [app_id="thunar"] floating enable, resize set 1280 800
 for_window [app_id="Logseq"] floating enable, resize set 1680 1050
 for_window [app_id="cmus-player"] floating enable, resize set 800 500
-for_window [app_id="cheese"] floating enable, resize set 1440 900
+for_window [app_id="Cheese"] floating enable, resize set 1440 900
 for_window [app_id="blueberry"] floating enable, resize set 640 400
 for_window [app_id="pavucontrol"] floating enable, resize set 640 400
 for_window [app_id="btop-monitor"] floating enable, resize set 1440 900
