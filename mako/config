@@ -1,7 +1,7 @@
 font="Inter" 10
-background-color=#1e1e2e
-text-color=#cdd6f4
-border-color=#313244
+background-color=#272822
+text-color=#f8f8f2
+border-color=#49483e
 border-size=2
 border-radius=0
 width=350
@@ -24,15 +24,12 @@ format=<b>%s</b>\n%b
 markup=1
 on-button-left=dismiss
 on-button-right=dismiss-all
-
 [urgency=low]
-border-color=#6c7086
+border-color=#75715e
 default-timeout=3000
-
 [urgency=normal]
-border-color=#89b4fa
+border-color=#66d9ef
 default-timeout=5000
-
 [urgency=high]
-border-color=#f38ba8
+border-color=#f92672
 default-timeout=5000
