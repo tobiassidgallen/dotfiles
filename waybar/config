@@ -52,10 +52,10 @@
         "calendar": {
             "mode": "month",
             "format": {
-                "months": "<span color='#cdd6f4'><b>{}</b></span>",
-                "days": "<span color='#cdd6f4'>{}</span>",
-                "weekdays": "<span color='#cdd6f4'><b>{}</b></span>",
-                "today": "<span color='#fab387'><b><u>{}</u></b></span>"
+                "months": "<span color='#f8f8f2'><b>{}</b></span>",
+                "days": "<span color='#f8f8f2'>{}</span>",
+                "weekdays": "<span color='#f8f8f2'><b>{}</b></span>",
+                "today": "<span color='#f4bf75'><b><u>{}</u></b></span>"
             }
         }
     },
