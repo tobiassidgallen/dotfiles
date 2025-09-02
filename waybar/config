@@ -64,9 +64,8 @@
         "exec": "python3 ~/.config/waybar/scripts/wifi-signal.py",
         "format": "{}",
         "tooltip": "WiFi Signal",
-        "interval": 3,
-        "return-type": "json",
-        "on-click": "nm-connection-editor"
+        "interval": 2,
+        "return-type": "json"
     },
 
     "bluetooth": {
@@ -105,7 +104,6 @@
 
     "battery": {
         "states": {
-            "full": 95,
             "normal": 80,
             "caution": 50,
             "warning": 30,
