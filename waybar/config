@@ -122,14 +122,21 @@
     },
 
     "custom/cpu-temp": {
-        "exec": "sensors | awk '/temp1/ {print int($2)}'",
-        "format": "󰏈 {}°C",
+        "exec": "python3 ~/.config/waybar/scripts/cpu-temp.py",
+        "format": "󰏈 {}",
         "tooltip": "CPU Temperature",
         "interval": 2,
-        "on-click": "alacritty --class btop-monitor -e btop"
+        "on-click": "alacritty --class btop-monitor -e btop",
+        "return-type": "json"
     },
 
     "cpu": {
+        "states": {
+            "excellent": 25,
+            "good": 50,
+            "warning": 75,
+            "critical": 100
+        },
         "format": "󰘚 {usage}%",
         "tooltip-format": "CPU Usage: {usage}%",
         "interval": 2,
@@ -137,6 +144,12 @@
     },
 
     "memory": {
+        "states": {
+            "excellent": 25,
+            "good": 50,
+            "warning": 75,
+            "critical": 100
+        },
         "format": "󰍛 {used}G/{total}G",
         "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)",
         "interval": 2,
