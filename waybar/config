@@ -10,7 +10,7 @@
     ],
     "modules-center": ["clock"],
     "modules-right": [
-        "network",
+        "custom/wifi",
         "custom/separator1",
         "bluetooth",
         "custom/separator2",
@@ -60,14 +60,13 @@
         }
     },
 
-    "network": {
-        "format-wifi": "󰤨 {signalStrength}% {essid}",
-        "format-ethernet": "󰈀 {ipaddr}",
-        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%",
-        "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}",
-        "format-linked": "󰈂 {ifname} (No IP)",
-        "format-disconnected": "󰤭 OFFLINE",
-        "interval": 2
+    "custom/wifi": {
+        "exec": "python3 ~/.config/waybar/scripts/wifi-signal.py",
+        "format": "{}",
+        "tooltip": "WiFi Signal",
+        "interval": 3,
+        "return-type": "json",
+        "on-click": "nm-connection-editor"
     },
 
     "bluetooth": {
@@ -106,11 +105,11 @@
 
     "battery": {
         "states": {
-            "critical": 20,
-            "warning": 30,
-            "caution": 50,
+            "full": 95,
             "normal": 80,
-            "full": 100
+            "caution": 50,
+            "warning": 30,
+            "critical": 20
         },
         "format": "󰁹 {capacity}%",
         "format-charging": "󰂄 {capacity}%",
@@ -132,10 +131,10 @@
 
     "cpu": {
         "states": {
-            "excellent": 25,
-            "good": 50,
-            "warning": 75,
-            "critical": 100
+            "critical": 75,
+            "warning": 50,
+            "good": 25,
+            "excellent": 0
         },
         "format": "󰘚 {usage}%",
         "tooltip-format": "CPU Usage: {usage}%",
@@ -145,10 +144,10 @@
 
     "memory": {
         "states": {
-            "excellent": 25,
-            "good": 50,
-            "warning": 75,
-            "critical": 100
+            "critical": 75,
+            "warning": 50,
+            "good": 25,
+            "excellent": 0
         },
         "format": "󰍛 {used}G/{total}G",
         "tooltip-format": "RAM: {used}GB/{total}GB ({percentage}%)",
