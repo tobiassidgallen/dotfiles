@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #000000;
     border-radius: 5px;
     margin: 3px 3px 0px 3px;
     color: #f8f8f2;
@@ -89,7 +89,7 @@ window#waybar.hidden {
 #memory:hover,
 #disk:hover,
 #custom-power:hover {
-    background-color: #75715e;
+    background-color: #49483e;
 }
 
 /* Separators */
@@ -102,7 +102,7 @@ window#waybar.hidden {
 #custom\/separator7,
 #custom\/separator8,
 #custom\/separator9 {
-    color: #75715e;
+    color: #f8f8f2;
     padding: 0 5px;
     font-weight: normal;
 }
@@ -110,7 +110,7 @@ window#waybar.hidden {
 /* Clock */
 #clock {
     font-weight: bold;
-    color: #66d9ef;
+    color: #f8f8f2;
 }
 
 /* Battery states (Perfect - Your Design) */
@@ -235,11 +235,11 @@ window#waybar.hidden {
 
 /* Default colors for modules without states */
 #disk {
-    color: #a1efe4;
+    color: #66d9ef;
 }
 
 #backlight {
-    color: #e6db74;
+    color: #ae81ff;
 }
 
 /* Power button */
