@@ -139,6 +139,7 @@ for_window [app_id="Logseq"] floating enable, resize set 1680 1050
 for_window [app_id="cmus-player"] floating enable, resize set 800 500
 for_window [app_id="blueberry"] floating enable, resize set 640 400
 for_window [app_id="pavucontrol"] floating enable, resize set 640 400
+for_window [app_id="btop"] floating enable, resize set 1440 900
 
 # Appearance
 gaps inner 5
