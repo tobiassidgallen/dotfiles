@@ -114,34 +114,26 @@ window#waybar.hidden {
 }
 
 /* Battery states */
-#battery.charging,
-#battery.plugged {
-    color: #a6e3a1; /* Green while charging */
-    animation: pulse 2s ease-in-out infinite alternate;
-}
-
-#battery.critical:not(.charging) {
+#battery.critical {
     color: #f38ba8; /* Red = 0–20% */
     animation: blink 1s linear infinite alternate;
 }
-
-#battery.warning:not(.charging) {
+#battery.warning {
     color: #fab387; /* Orange = 21–30% */
 }
-
-#battery.normal:not(.charging) {
-    color: #a6e3a1; /* Green = 31–80% */
+#battery.caution {
+    color: #f9e2af; /* Yellow = 31–50% */
 }
-
-#battery.full:not(.charging) {
-    color: #cdd6f4; /* White = 81–100% */
+#battery.normal {
+    color: #a6e3a1; /* Green = 51–80% */
 }
-
+#battery.full {
+    color: #f38ba8; /* Red = 81–100% */
+}
 @keyframes pulse {
     from { opacity: 0.8; }
     to { opacity: 1.0; }
 }
-
 @keyframes blink {
     to { opacity: 0.5; }
 }
