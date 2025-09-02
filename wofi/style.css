@@ -38,7 +38,7 @@ window {
     background-color: transparent;
 }
 #entry:selected {
-    background-color: #66d9ef;
+    background-color: #a6e22e;
     color: #000000;
 }
 #entry:hover {
