@@ -8,7 +8,7 @@ set $menu wofi --show drun
 
 font pango:Liberation Sans 10
 
-exec swaybg -c #1e1e2e
+exec swaybg -c #272822
 
 input type:touchpad {
     tap enabled
@@ -151,11 +151,11 @@ gaps outer 2
 default_border pixel 2
 default_floating_border pixel 2
 
-# Catppuccin theme
-client.focused          #89b4fa #1e1e2e #cdd6f4 #89b4fa #89b4fa
-client.focused_inactive #6c7086 #1e1e2e #cdd6f4 #6c7086 #6c7086
-client.unfocused        #45475a #1e1e2e #a6adc8 #45475a #45475a
-client.urgent           #f38ba8 #1e1e2e #cdd6f4 #f38ba8 #f38ba8
+# Monokai theme
+client.focused          #66d9ef #272822 #f8f8f2 #66d9ef #66d9ef
+client.focused_inactive #75715e #272822 #f8f8f2 #75715e #75715e
+client.unfocused        #49483e #272822 #a59f85 #49483e #49483e
+client.urgent           #f92672 #272822 #f8f8f2 #f92672 #f92672
 
 bar {
     swaybar_command waybar
