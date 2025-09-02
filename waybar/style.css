@@ -120,10 +120,6 @@ window#waybar.hidden {
     animation: pulse 2s ease-in-out infinite alternate;
 }
 
-#battery.charge-limit {
-    color: #f9e2af; /* Yellowish when charge limit hit */
-}
-
 #battery.critical:not(.charging) {
     color: #f38ba8; /* Red = 0–20% */
     animation: blink 1s linear infinite alternate;
