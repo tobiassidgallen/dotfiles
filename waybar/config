@@ -108,6 +108,7 @@
         "states": {
             "critical": 20,
             "warning": 30,
+            "caution": 50,
             "normal": 80,
             "full": 100
         },
