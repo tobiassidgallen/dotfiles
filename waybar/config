@@ -104,6 +104,7 @@
 
     "battery": {
         "states": {
+            "full": 100,
             "normal": 80,
             "caution": 50,
             "warning": 30,
