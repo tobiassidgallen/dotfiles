@@ -1,12 +1,12 @@
 window {
-    border: 2px solid #49483e;
-    background-color: #272822;
+    border: 2px solid #75715e;
+    background-color: #000000;
 }
 #input {
     margin: 8px;
     border: 1px solid #75715e;
     color: #f8f8f2;
-    background-color: #49483e;
+    background-color: #75715e;
     padding: 8px;
     font-family: "Inter";
     font-size: 10px;
@@ -31,7 +31,7 @@ window {
     font-size: 10px;
 }
 #text:selected {
-    color: #272822;
+    color: #000000;
 }
 #entry {
     border: none;
@@ -39,8 +39,8 @@ window {
 }
 #entry:selected {
     background-color: #66d9ef;
-    color: #272822;
+    color: #000000;
 }
 #entry:hover {
-    background-color: #49483e;
+    background-color: #75715e;
 }
