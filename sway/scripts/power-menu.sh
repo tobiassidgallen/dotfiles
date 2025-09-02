@@ -3,7 +3,7 @@ choice=$(echo -e "🔒 Lock\n💤 Sleep\n⏻ Shutdown\n🔄 Restart" | wofi --dm
 # Exit if no choice made (user canceled)
 [ -z "$choice" ] && exit 0
 case "$choice" in
-    "🔒 Lock") swaylock -f -c 000000 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock ;;
+    "🔒 Lock") swaylock -f -c 272822 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock ;;
     "💤 Sleep") systemctl suspend ;;
     "⏻ Shutdown") systemctl poweroff ;;
     "🔄 Restart") systemctl reboot ;;
