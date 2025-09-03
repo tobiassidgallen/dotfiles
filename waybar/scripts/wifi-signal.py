@@ -88,28 +88,107 @@ def get_wifi_info():
     except Exception as e:
         return None, None
 
-def check_internet():
+def check_ethernet_connection():
+    """Check if we have an active ethernet connection"""
     try:
-        # Quick connectivity check
-        result = subprocess.run(['ping', '-c', '1', '-W', '1', '1.1.1.1'], 
+        # Method 1: Check nmcli for ethernet connections
+        result = subprocess.run(['nmcli', '-t', '-f', 'TYPE,STATE', 'connection', 'show', '--active'], 
+                              capture_output=True, text=True)
+        if result.returncode == 0:
+            for line in result.stdout.strip().split('\n'):
+                if line.startswith('ethernet:activated') or '802-3-ethernet:activated' in line:
+                    return True
+        
+        # Method 2: Check network interfaces for active ethernet
+        result = subprocess.run(['ip', 'link', 'show'], capture_output=True, text=True)
+        if result.returncode == 0:
+            for line in result.stdout.split('\n'):
+                # Look for ethernet interfaces that are UP
+                if re.search(r'^[0-9]+:\s+(eth|eno|enp|ens)[^:]*:.*state UP', line):
+                    return True
+                # Also check for common ethernet interface patterns
+                if re.search(r'^[0-9]+:\s+[^:]*:\s.*<.*UP.*>.*state UP', line) and 'wl' not in line and 'lo' not in line:
+                    return True
+        
+        # Method 3: Check /sys/class/net for active ethernet interfaces
+        import os
+        net_path = '/sys/class/net'
+        if os.path.exists(net_path):
+            for interface in os.listdir(net_path):
+                if interface.startswith(('eth', 'eno', 'enp', 'ens')):
+                    # Check if interface is up
+                    operstate_path = f"{net_path}/{interface}/operstate"
+                    if os.path.exists(operstate_path):
+                        try:
+                            with open(operstate_path, 'r') as f:
+                                if f.read().strip() == 'up':
+                                    return True
+                        except:
+                            pass
+        
+        return False
+        
+    except Exception as e:
+        return False
+
+def check_internet():
+    """Quick internet connectivity check"""
+    try:
+        result = subprocess.run(['ping', '-c', '1', '-W', '2', '1.1.1.1'], 
                               capture_output=True, text=True)
         return result.returncode == 0
     except:
         return False
 
 def get_ip_info():
+    """Get current IP address"""
     try:
-        # Get IP address info
+        # Method 1: Get default route IP
         result = subprocess.run(['ip', 'route', 'get', '1.1.1.1'], 
                               capture_output=True, text=True)
         if result.returncode == 0:
-            # Look for the source IP
             for line in result.stdout.split('\n'):
                 if 'src' in line:
                     parts = line.split()
-                    src_index = parts.index('src')
-                    if src_index + 1 < len(parts):
-                        return parts[src_index + 1]
+                    try:
+                        src_index = parts.index('src')
+                        if src_index + 1 < len(parts):
+                            return parts[src_index + 1]
+                    except ValueError:
+                        pass
+        
+        # Method 2: Get IP from active interfaces
+        result = subprocess.run(['ip', 'addr', 'show'], capture_output=True, text=True)
+        if result.returncode == 0:
+            for line in result.stdout.split('\n'):
+                # Look for inet addresses that aren't loopback
+                if 'inet ' in line and '127.0.0.1' not in line:
+                    match = re.search(r'inet\s+([0-9.]+)', line)
+                    if match:
+                        return match.group(1)
+        
+        return None
+    except:
+        return None
+
+def get_ethernet_interface():
+    """Get the name of the active ethernet interface"""
+    try:
+        result = subprocess.run(['ip', 'route', 'get', '1.1.1.1'], 
+                              capture_output=True, text=True)
+        if result.returncode == 0:
+            for line in result.stdout.split('\n'):
+                if 'dev' in line:
+                    parts = line.split()
+                    try:
+                        dev_index = parts.index('dev')
+                        if dev_index + 1 < len(parts):
+                            interface = parts[dev_index + 1]
+                            # Check if it's an ethernet interface
+                            if interface.startswith(('eth', 'eno', 'enp', 'ens')):
+                                return interface
+                    except ValueError:
+                        pass
         return None
     except:
         return None
@@ -118,32 +197,16 @@ def main():
     ssid, signal = get_wifi_info()
     has_internet = check_internet()
     ip = get_ip_info()
+    has_ethernet = check_ethernet_connection()
+    ethernet_interface = get_ethernet_interface()
     
-    # Check if we're connected via ethernet (no wifi but have internet)
-    if not ssid and has_internet and ip:
-        output = {
-            "text": f"󰈀 {ip}",
-            "class": "ethernet",
-            "tooltip": f"Wired connection\nIP: {ip}"
-        }
-        print(json.dumps(output))
-        return
+    # Debug: If we have an IP but no detected internet, assume we have internet
+    # This handles cases where ping/curl fails due to firewall but connection works
+    if ip and not has_internet:
+        has_internet = True
     
-    # No connection at all
-    if not ssid and not has_internet:
-        output = {
-            "text": "󰤭 OFFLINE",
-            "class": "disconnected",
-            "tooltip": "No network connection"
-        }
-        print(json.dumps(output))
-        return
-    
-    # WiFi connection
-    if ssid:
-        if signal is None:
-            signal = 50  # Default if we can't get signal strength
-        
+    # Priority 1: WiFi connection (if active)
+    if ssid and signal is not None:
         # Determine CSS class and icon based on signal strength
         if signal >= 76:
             css_class = "excellent"
@@ -162,22 +225,59 @@ def main():
             status = "Weak"
             icon = "󰤟"
         
-        # Add connection status to tooltip
         connection_status = "Connected" if has_internet else "Limited connectivity"
         
         output = {
             "text": f"{icon} {signal}% {ssid}",
             "class": css_class,
-            "tooltip": f"WiFi: {ssid}\nSignal: {signal}% ({status})\nStatus: {connection_status}"
+            "tooltip": f"WiFi: {ssid}\nSignal: {signal}% ({status})\nStatus: {connection_status}" + (f"\nIP: {ip}" if ip else "")
         }
         print(json.dumps(output))
         return
     
-    # Fallback - something is wrong
+    # Priority 2: We have an IP address, assume working connection
+    if ip and has_internet:
+        # Try to determine if it's ethernet
+        if has_ethernet or ethernet_interface:
+            interface_info = f" ({ethernet_interface})" if ethernet_interface else ""
+            output = {
+                "text": f"󰈀 Ethernet{interface_info}",
+                "class": "ethernet",
+                "tooltip": f"Wired connection{interface_info}\nIP: {ip}\nStatus: Connected"
+            }
+        else:
+            # Generic connection
+            output = {
+                "text": f"󰈀 Connected",
+                "class": "ethernet",
+                "tooltip": f"Network connection\nIP: {ip}\nStatus: Connected"
+            }
+        print(json.dumps(output))
+        return
+    
+    # Priority 3: We have an IP but limited internet
+    if ip and not has_internet:
+        if has_ethernet or ethernet_interface:
+            interface_info = f" ({ethernet_interface})" if ethernet_interface else ""
+            output = {
+                "text": f"󰈀 Limited{interface_info}",
+                "class": "disconnected",
+                "tooltip": f"Ethernet connected{interface_info}\nIP: {ip}\nStatus: Limited connectivity"
+            }
+        else:
+            output = {
+                "text": f"󰈀 Limited",
+                "class": "disconnected",
+                "tooltip": f"Network connection\nIP: {ip}\nStatus: Limited connectivity"
+            }
+        print(json.dumps(output))
+        return
+    
+    # Priority 4: No IP, no connection
     output = {
-        "text": "󰤭 ERROR",
+        "text": "󰤭 OFFLINE",
         "class": "disconnected",
-        "tooltip": "Network detection failed"
+        "tooltip": "No network connection"
     }
     print(json.dumps(output))
 
