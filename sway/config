@@ -164,7 +164,7 @@ bar {
 # Startup applications
 exec mako
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec wlsunset -l 14.6 -L 120.98
+exec wlsunset -l 14.6 -L 120.98 -t 5000 -T 6000
 exec swayidle -w \
     timeout 300 'swaylock -f -c 272822 -i ~/Pictures/wallpapers/lockscreen.jpg --show-failed-attempts --show-keyboard-layout --indicator-caps-lock' \
     timeout 600 'swaymsg "output * dpms off"' \
